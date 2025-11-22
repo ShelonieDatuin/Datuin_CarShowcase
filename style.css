@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff9ec1 0%, #dda0dd 50%, #da70d6 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2.8em;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 14px 32px;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.3s;
+    backdrop-filter: blur(10px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tab-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+    color: white;
+    border-color: #ff6b9d;
+    box-shadow: 0 6px 25px rgba(255,107,157,0.4);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.panel {
+    background: rgba(255,255,255,0.98);
+    border-radius: 25px;
+    padding: 35px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #d6308f;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #ffb6c1;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 0 4px rgba(255,105,180,0.15);
+    transform: translateY(-2px);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff8fd8 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,105,180,0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+    color: white;
+}
+
+.btn-danger:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255,107,157,0.4);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #c471ed 0%, #f779d5 100%);
+    color: white;
+}
+
+.btn-edit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(196,113,237,0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    color: white;
+}
+
+.btn-success:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(161,140,209,0.4);
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.car-card {
+    background: white;
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(255, 105, 180, 0.25);
+    transition: all 0.4s ease;
+    position: relative;
+    border: 3px solid transparent;
+}
+
+.car-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(255, 105, 180, 0.4);
+    border-color: #ff9ec1;
+}
+
+.car-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-bottom: 6px solid #ff9ec1;
+}
+
+.car-condition {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff8fd8 100%);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+.car-condition.new {
+    background: linear-gradient(135deg, #fbc2eb 0%, #a18cd1 100%);
+}
+
+.car-info {
+    padding: 24px;
+}
+
+.car-brand {
+    font-size: 13px;
+    color: #d6308f;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.car-name {
+    font-size: 26px;
+    font-weight: 900;
+    color: #c71585;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.car-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+    padding: 16px;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+    border-radius: 16px;
+    border: 2px dashed #ffb6c1;
+}
+
+.car-spec {
+    font-size: 13.5px;
+    color: #993366;
+    font-weight: 600;
+}
+
+.car-price {
+    font-size: 32px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff69b4 0%, #da70d6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 16px 0;
+    text-shadow: none;
+}
+
+/* Make the action buttons even cuter */
+.car-actions .btn {
+    border-radius: 16px;
+    font-size: 14px;
+    padding: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.car-actions .btn-primary {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff8fd8 100%);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+}
+
+.car-actions .btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(255, 105, 180, 0.5);
+}
+/* Rest of the colors updated below to match the girly theme */
+
+.showroom-car:hover {
+    border-color: #ff69b4;
+    box-shadow: 0 8px 25px rgba(255,105,180,0.2);
+}
+
+.client-card {
+    background: linear-gradient(135deg, #ff69b4 0%, #da70d6 100%);
+    box-shadow: 0 8px 25px rgba(255,105,180,0.3);
+}
+
+.cart-summary {
+    background: linear-gradient(135deg, #ff69b4 0%, #da70d6 100%);
+    box-shadow: 0 10px 30px rgba(255,105,180,0.4);
+}
+
+.cart-item {
+    background: rgba(255,255,255,0.15);
+}
+
+.order-card {
+    border-left: 6px solid #ff69b4;
+}
+
+.order-id,
+.order-total {
+    color: #c71585;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #ff69b4 0%, #da70d6 100%);
+    box-shadow: 0 8px 25px rgba(255,105,180,0.3);
+}
+
+.stat-card:hover {
+    box-shadow: 0 12px 35px rgba(255,105,180,0.4);
+}
+
+.section-title {
+    color: #c71585;
+}
+
+#updateCarForm {
+    border-top: 3px solid #ffb6c1;
+}
+
+.image-preview img {
+    border: 3px solid #ffb6c1;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #ff9ec1 0%, #dda0dd 40%, #e0aaff 100%);
+    color: white;
+    padding: 32px 24px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(255, 105, 180, 0.35);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: 24px;
+}
+
+.stat-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 45px rgba(255, 105, 180, 0.5);
+    border-color: #ffffff;
+}
+
+.stat-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.stat-value {
+    font-size: 48px;
+    font-weight: 900;
+    margin: 8px 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.95;
+    margin-top: 10px;
+}
+
+/* Optional cute icons using emoji or Font Awesome */
+.stat-card:nth-child(1) .stat-icon::before { content: '🚗'; }
+.stat-card:nth-child(2) .stat-icon::before { content: '💰'; }
+.stat-card:nth-child(3) .stat-icon::before { content: '✨'; }
+.stat-card:nth-child(4) .stat-icon::before { content: '🛍️'; }
+
+.cart-summary {
+    background: linear-gradient(135deg, #ff9ec1 0%, #ffb6e0 40%, #dda0dd 100%);
+    border-radius: 28px;
+    padding: 32px 28px;
+    margin-top: 30px;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.35);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.25);
+}
+
+.cart-summary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 60%);
+    pointer-events: none;
+    border-radius: 28px;
+}
+
+.cart-summary h3 {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
+}
+
+/* Empty state – extra cute */
+.empty-cart {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.empty-cart::before {
+    content: '✨';
+    display: block;
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+/* Total */
+.cart-total {
+    font-size: 38px;
+    font-weight: 900;
+    text-align: right;
+    margin: 20px 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #ffedf7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Complete Purchase Button – the star of the show */
+.complete-purchase-btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #ff69b4 0%, #ff8fd8 100%);
+    color: white;
+    border: none;
+    border-radius: 22px;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.5);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.complete-purchase-btn::before {
+    content: '♡';
+    margin-right: 12px;
+    font-size: 26px;
+}
+
+.complete-purchase-btn:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.6);
+    background: linear-gradient(135deg, #ff8fd8 0%, #fda7df 100%);
+}
